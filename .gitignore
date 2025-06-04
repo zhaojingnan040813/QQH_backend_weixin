@@ -1,0 +1,57 @@
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### STS/Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+### 本地配置文件 ###
+src/main/resources/application-local.yml
+src/main/resources/application-dev.yml
+src/main/resources/application-test.yml
+
+### 日志文件 ###
+logs/
+*.log
+*.log.*
+
+### 系统相关 ###
+.DS_Store
+Thumbs.db
+
+### 其他 ###
+HELP.md
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+out/ 
