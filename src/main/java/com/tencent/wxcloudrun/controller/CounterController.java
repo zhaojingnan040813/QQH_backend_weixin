@@ -6,6 +6,9 @@ import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.dto.CounterRequest;
 import com.tencent.wxcloudrun.model.Counter;
 import com.tencent.wxcloudrun.service.CounterService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +23,7 @@ import java.util.List;
  * counter控制器
  */
 @RestController
-
+@Api(tags = "计数器接口")
 public class CounterController {
 
   final CounterService counterService;
@@ -37,6 +40,7 @@ public class CounterController {
    * @return API response json
    */
   @GetMapping(value = "/api/count")
+  @ApiOperation(value = "获取当前计数", notes = "返回当前计数值")
   ApiResponse get() {
     logger.info("/api/count get request");
     Optional<Counter> counter = counterService.getCounter(1);
@@ -55,7 +59,8 @@ public class CounterController {
    * @return API response json
    */
   @PostMapping(value = "/api/count")
-  ApiResponse create(@RequestBody CounterRequest request) {
+  @ApiOperation(value = "更新计数", notes = "根据传入的action参数，自增或清零计数")
+  ApiResponse create(@ApiParam(name = "更新计数请求", value = "传入action参数") @RequestBody CounterRequest request) {
     logger.info("/api/count post request, action: {}", request.getAction());
 
     Optional<Counter> curCounter = counterService.getCounter(1);
