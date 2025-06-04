@@ -1,7 +1,6 @@
 server:
   port: 80
 
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,25 +8,17 @@ spring:
     username: ${MYSQL_USERNAME}
     password: ${MySQL_PASSWORD}
   mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
     view:
       suffix: .html
       prefix: /
-    pathmatch:
-      matching-strategy: ant_path_matcher
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
 
-# knife4j配置
-knife4j:
-  enable: true
-  openapi:
-    title: 微信云托管API文档
-    description: QQH_backend_weixin项目接口文档
-    email: 
-    concat: 开发者
-    url: https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/basic/guide.html
-    version: 1.0.0
-    license: Apache 2.0
-    license-url: https://github.com/WeixinCloud/wxcloudrun-express/blob/main/LICENSE
-    terms-of-service-url: https://developers.weixin.qq.com/miniprogram/dev/wxcloudrun/src/basic/guide.html
+# 基础日志配置
+logging:
+  level:
+    com.tencent.wxcloudrun: INFO
+    org.springframework.web: WARN
